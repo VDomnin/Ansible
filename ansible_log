@@ -1,46 +1,9 @@
-2021-12-10 10:05:03,922 p=65231 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:05:04,002 p=65231 u=vdomnin n=ansible | TASK [generate ssh key in root] ************************************************
-2021-12-10 10:05:06,410 p=65231 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:05:06,424 p=65231 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:05:06,424 p=65231 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:20:44,091 p=65602 u=vdomnin n=ansible | ERROR! Empty playbook, nothing to do
-2021-12-10 10:21:03,707 p=65617 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:21:03,779 p=65617 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:21:07,235 p=65617 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:21:07,292 p=65617 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
-2021-12-10 10:21:08,071 p=65617 u=vdomnin n=ansible | fatal: [192.168.10.101]: FAILED! => {"changed": false, "cmd": "git add .\ngit commit -m \"Log Ansible's Config\"\ngit pull \n", "delta": null, "end": null, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: b'/home/testwork'", "rc": null, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
-2021-12-10 10:21:08,073 p=65617 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:21:08,073 p=65617 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:22:44,859 p=65708 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:22:44,934 p=65708 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:22:48,963 p=65708 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:22:49,010 p=65708 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
-2021-12-10 10:22:49,037 p=65708 u=vdomnin n=ansible | fatal: [192.168.10.101]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'log_path' is undefined\n\nThe error appears to be in '/home/vdomnin/git_log.yml': line 5, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Git Log\n      ^ here\n"}
-2021-12-10 10:22:49,039 p=65708 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:22:49,039 p=65708 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:26:29,552 p=65755 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:26:29,630 p=65755 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:26:33,274 p=65755 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:26:33,327 p=65755 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
-2021-12-10 10:26:34,119 p=65755 u=vdomnin n=ansible | fatal: [192.168.10.101]: FAILED! => {"changed": false, "cmd": "git add .\ngit commit -m \"Log Ansible's Config\"\ngit pull \n", "delta": null, "end": null, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: b'/home/vdomnin/testwork'", "rc": null, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
-2021-12-10 10:26:34,122 p=65755 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:26:34,122 p=65755 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:27:44,882 p=65803 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:27:44,963 p=65803 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:27:48,619 p=65803 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:27:48,667 p=65803 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
-2021-12-10 10:27:49,832 p=65803 u=vdomnin n=ansible | changed: [192.168.10.101 -> localhost]
-2021-12-10 10:27:49,882 p=65803 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:27:49,883 p=65803 u=vdomnin n=ansible | 192.168.10.101             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:28:45,535 p=65883 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:28:45,610 p=65883 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:28:48,711 p=65883 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:28:48,767 p=65883 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
-2021-12-10 10:28:49,896 p=65883 u=vdomnin n=ansible | fatal: [192.168.10.101 -> localhost]: FAILED! => {"changed": true, "cmd": "git add .\ngit commit -m \"Log Ansible's Config\"\ngit push\n", "delta": "0:00:00.325436", "end": "2021-12-10 10:28:49.809066", "msg": "non-zero return code", "rc": 128, "start": "2021-12-10 10:28:49.483630", "stderr": "\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email \"you@example.com\"\n  git config --global user.name \"Your Name\"\n\nto set your account's default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: unable to auto-detect email address (got 'vdomnin@control.(none)')\nfatal: remote error: \n  You can't push to git://github.com/VDomnin/Ansible.git\n  Use https://github.com/VDomnin/Ansible.git", "stderr_lines": ["", "*** Please tell me who you are.", "", "Run", "", "  git config --global user.email \"you@example.com\"", "  git config --global user.name \"Your Name\"", "", "to set your account's default identity.", "Omit --global to set the identity only in this repository.", "", "fatal: unable to auto-detect email address (got 'vdomnin@control.(none)')", "fatal: remote error: ", "  You can't push to git://github.com/VDomnin/Ansible.git", "  Use https://github.com/VDomnin/Ansible.git"], "stdout": "", "stdout_lines": []}
-2021-12-10 10:28:49,898 p=65883 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
-2021-12-10 10:28:49,898 p=65883 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2021-12-10 10:37:07,673 p=66112 u=vdomnin n=ansible | Using /home/vdomnin/ansible.cfg as config file
-2021-12-10 10:37:10,732 p=66112 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
-2021-12-10 10:37:10,812 p=66112 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
-2021-12-10 10:37:14,874 p=66112 u=vdomnin n=ansible | ok: [192.168.10.101]
-2021-12-10 10:37:14,938 p=66112 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
+2021-12-10 10:47:04,726 p=66318 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
+2021-12-10 10:47:04,804 p=66318 u=vdomnin n=ansible | TASK [generate ssh key in root] ************************************************
+2021-12-10 10:47:07,250 p=66318 u=vdomnin n=ansible | ok: [192.168.10.101]
+2021-12-10 10:47:07,262 p=66318 u=vdomnin n=ansible | PLAY RECAP *********************************************************************
+2021-12-10 10:47:07,263 p=66318 u=vdomnin n=ansible | 192.168.10.101             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-10 10:47:36,849 p=66348 u=vdomnin n=ansible | PLAY [Playbook] ****************************************************************
+2021-12-10 10:47:36,923 p=66348 u=vdomnin n=ansible | TASK [Gathering Facts] *********************************************************
+2021-12-10 10:47:39,177 p=66348 u=vdomnin n=ansible | ok: [192.168.10.101]
+2021-12-10 10:47:39,230 p=66348 u=vdomnin n=ansible | TASK [Git Log] *****************************************************************
