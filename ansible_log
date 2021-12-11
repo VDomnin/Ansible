@@ -1,15 +1,3 @@
-2021-12-11 10:19:44,646 p=69582 u=vdomnin n=ansible | ansible-playbook [core 2.11.7] 
-  config file = /home/vdomnin/ansible.cfg
-  configured module search path = ['/home/vdomnin/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3/dist-packages/ansible
-  ansible collection location = /home/vdomnin/.ansible/collections:/usr/share/ansible/collections
-  executable location = /usr/bin/ansible-playbook
-  python version = 3.8.10 (default, Sep 28 2021, 16:10:42) [GCC 9.3.0]
-  jinja version = 2.10.1
-  libyaml = True
-2021-12-11 10:19:44,647 p=69582 u=vdomnin n=ansible | Using /home/vdomnin/ansible.cfg as config file
-2021-12-11 10:19:47,805 p=69582 u=vdomnin n=ansible |  [ERROR]: User interrupted execution
-
 2021-12-11 10:20:00,809 p=69585 u=vdomnin n=ansible | ansible-playbook [core 2.11.7] 
   config file = /home/vdomnin/ansible.cfg
   configured module search path = ['/home/vdomnin/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
