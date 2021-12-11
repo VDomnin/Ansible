@@ -1,0 +1,67 @@
+---
+- name: Ubuntu Managed Host Setup
+  hosts: ubuntu
+  tasks:
+    - name: Remove software if installed
+      package:
+        name: zsh
+        name: nginx
+        name: wget
+        state: absent
+        
+    - name: Install software
+      package:
+        name: zsh
+        name: nginx
+        name: wget
+        state: present
+        
+    - name: Copy web content
+      get_url:
+        url: https://raw.githubusercontent.com/VDomnin/Ansible/master/index.html
+        dest: /var/www
+        
+    - name: Ensure NGINX Started and Enabled
+      service:
+        name: nginx
+        enabled: true
+        state: started
+        
+    - name: Edit NGINX Config
+      lineinfile:
+        path: /etc/nginx/sites-enabled/default
+        search_string: 'root /var/www/html'
+        line: '        root /var/www; '
+      notify: restart_nginx
+        
+    - name: change sysctl params with shell
+      shell: |
+        touch 99-custom.conf
+        echo 'fs.file-max = 1204000' | sudo tee -a 99-custom.conf
+        echo 'net.core.somaxconn=65535' | sudo tee -a 99-custom.conf
+        sudo sysctl -p /etc/sysctl.d/99-custom.conf
+      args:  
+        chdir: /etc/sysctl.d
+        creates: 99-custom.conf
+        
+    - name: generate ssh key in root with cmd
+      command: ssh-keygen -t rsa -N "" -f /root/new_key
+      become: yes
+      args:
+        creates: /root/new_key
+        
+    - name: Log to GitHub
+      shell: |
+        git add .
+        git commit -m "Log Ansible's Config"
+        git push
+      args: 
+        chdir: /home/vdomnin/testwork/Ansible
+      delegate_to: localhost    
+      become: false 
+    
+  handlers:
+    - name: restart_nginx
+      service: 
+        name: nginx
+        state: restarted

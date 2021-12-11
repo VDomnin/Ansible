@@ -1,0 +1,6 @@
+localhost ansible_connection=local ansible_user=vdomnin
+
+[ubuntu]
+192.168.10.101
+[centos]
+
