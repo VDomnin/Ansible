@@ -1,0 +1,79 @@
+---
+ hosts: Ubuntu
+ tasks:
+    - name: Ubuntu Managed Host Setup
+      package:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - zsh
+           - nginx
+           - wget
+
+    - name: Copy web content
+      get_url:
+        url: https://raw.githubusercontent.com/VDomnin/Ansible/master/index.html
+        dest: /var/www
+        
+    - name: Ensure NGINX Started and Enabled
+      service:
+        name: nginx
+        enabled: true
+        state: started
+        
+    - name: Edit NGINX Config
+      lineinfile:
+        path: /etc/nginx/sites-enabled/default
+        search_string: 'root /var/www/html'
+        line: '        root /var/www; '
+      notify: reload_nginx
+        
+    # - name: change sysctl params with shell
+    #   shell: |
+    #     touch 99-custom.conf
+    #     echo 'fs.file-max = 1204000' | sudo tee -a 99-custom.conf
+    #     echo 'net.core.somaxconn=65535' | sudo tee -a 99-custom.conf
+    #     sudo sysctl -p /etc/sysctl.d/99-custom.conf
+    #   args:  
+    #     chdir: /etc/sysctl.d
+    #     creates: 99-custom.conf
+
+    - name: set sysctl settings
+      sysctl:
+        sysctl_set: yes
+        reload: yes
+        state: present
+        name: "fs.file-max"
+        value: "1204000"
+
+    - name: set sysctl settings
+      sysctl:
+        sysctl_set: yes
+        reload: yes
+        state: present
+        name: "net.core.somaxconn"
+        value: "65535"
+
+
+    # - name: generate ssh key in root with cmd
+    #   command: ssh-keygen -t rsa -N "" -f /root/new_key
+    #   become: yes
+    #   args:
+    #     creates: /root/new_key
+
+    - name: add ssh-keys to user
+      authorized_key:
+        user: "root"
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPT0DogM0zop5DeqAWMcHggaPancRJUTvKCE6vyi/pgC"
+    
+ handlers:
+  - name: restart_nginx
+    service: 
+      - name: nginx
+        state: restarted
+
+  - name: reload_nginx
+    service: 
+      - name: nginx
+        state: reloaded
